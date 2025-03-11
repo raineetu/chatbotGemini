@@ -6,10 +6,8 @@ const cors = require("cors");
 const app = express();
 const port = 5000;
 
-// Enable CORS for all origins
 app.use(cors());
 
-// Middleware to parse JSON requests
 app.use(express.json());
 
 // API endpoint for chatbot

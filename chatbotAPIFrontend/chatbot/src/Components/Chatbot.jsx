@@ -27,9 +27,12 @@ function Chatbot() {
 
     try {
       // API call
-      const response = await axios.post("http://localhost:5000/api/chat", {
-        userMessage: input,
-      });
+      const response = await axios.post(
+        `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/chat`,
+        {
+          userMessage: input,
+        }
+      );
       const botMessage = { sender: "bot", text: response.data.message };
       setMessages((prev) => [...prev, botMessage]);
     } catch (error) {
@@ -39,7 +42,7 @@ function Chatbot() {
       };
       setMessages((prev) => [...prev, errorMessage]);
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
